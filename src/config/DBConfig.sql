@@ -40,9 +40,9 @@ alter table cards
 SET collation_connection = 'utf8_general_ci';
 ALTER DATABASE memobotdb CHARACTER SET utf8 COLLATE utf8_general_ci;
 
-ALTER TABLE cards
+ALTER TABLE Cards
     CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE categories
+ALTER TABLE Categories
     CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
-ALTER TABLE users
+ALTER TABLE Users
     CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
