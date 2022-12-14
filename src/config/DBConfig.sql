@@ -25,10 +25,10 @@ create table Cards
     foreign key cards2category (category_id) references Categories (id) on delete cascade
 );
 
-alter table categories
+alter table Categories
     add unique userIdName (user_id, name);
 
-alter table cards
+alter table Cards
     add unique categoryIdQuestion (category_id, question);
 
 # SET FOREIGN_KEY_CHECKS = 0;
