@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repository;
+namespace App\repository;
 
 final class UserRepository extends AbstractRepository
 {
