@@ -7,7 +7,7 @@ class CardRepository extends AbstractRepository
     public function add($category_id, string $question, string $answer)
     {
         $stmt = $this->mysqli->prepare(
-            "INSERT INTO cards (category_id, question, answer, grade) VALUES (?, ?, ?, 'bad')");
+            "INSERT INTO Cards (category_id, question, answer, grade) VALUES (?, ?, ?, 'bad')");
         $stmt->bind_param("iss", $category_id, $question, $answer);
         $stmt->execute();
     }
@@ -15,7 +15,7 @@ class CardRepository extends AbstractRepository
     public function getRandomCard($categoryId): bool|array|null
     {
         $stmt = $this->mysqli->prepare(
-            "SELECT * FROM cards 
+            "SELECT * FROM Cards 
          WHERE category_id = ?
          ORDER BY RAND() 
          LIMIT 1");
@@ -27,7 +27,7 @@ class CardRepository extends AbstractRepository
     public function setGrade(int $cardId, string $grade): void
     {
         $stmt = $this->mysqli->prepare(
-            "UPDATE cards
+            "UPDATE Cards
          SET grade = ? 
          WHERE id = ?");
         $stmt->bind_param("si", $grade, $cardId);
@@ -37,7 +37,7 @@ class CardRepository extends AbstractRepository
     public function getRandomCardByGrade($categoryId, $grade): bool|array|null
     {
         $stmt = $this->mysqli->prepare(
-            "SELECT * FROM cards 
+            "SELECT * FROM Cards 
          WHERE category_id = ? AND grade = ?
          ORDER BY RAND() 
          LIMIT 1");
@@ -48,7 +48,7 @@ class CardRepository extends AbstractRepository
 
     public function findByQuestion(string $question, int $categoryId): array
     {
-        $stmt = $this->mysqli->prepare("SELECT * FROM cards where question = ? and category_id = ?");
+        $stmt = $this->mysqli->prepare("SELECT * FROM Cards where question = ? and category_id = ?");
         $stmt->bind_param("si", $question, $categoryId);
         $stmt->execute();
         return $stmt->get_result()->fetch_all();
