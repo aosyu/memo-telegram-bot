@@ -1,6 +1,6 @@
-# drop table cards;
-# drop table categories;
-# drop table users;
+create schema memobotdb;
+
+use memobotdb;
 
 create table Users
 (
@@ -38,7 +38,7 @@ alter table cards
 # SET FOREIGN_KEY_CHECKS = 1;
 
 SET collation_connection = 'utf8_general_ci';
-ALTER DATABASE test CHARACTER SET utf8 COLLATE utf8_general_ci;
+ALTER DATABASE memobotdb CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 ALTER TABLE cards
     CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
