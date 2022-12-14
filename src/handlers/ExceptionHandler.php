@@ -24,7 +24,7 @@ class ExceptionHandler
             $bot->endConversation();
         } else {
             $bot->sendMessage('Неопознанная ошибка( Попробуйте снова.');
-            $bot->sendMessage($exception->getMessage());
+            $bot->sendMessage("ERROR: " . $exception->getTraceAsString() . " \n" . $exception->getMessage());
         }
     }
 }
